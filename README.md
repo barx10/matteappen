@@ -3,11 +3,6 @@
 Et enkelt matte-spill for barn med fly-tema.
 
 ## Funksjoner
-- Velg mellom pluss, minus og gange (1-10)
-- Riktige svar gir fly på poengtavlen
-- Tips-knapp for hjelp
-- Lyd for riktige/feil svar
-- Animert header med fly
 
 ## Oppsett
 1. Åpne prosjektmappen i VS Code
@@ -17,8 +12,9 @@ Et enkelt matte-spill for barn med fly-tema.
    ```
 3. Åpne `http://localhost:8000` i nettleseren
 
-## Endre flyretning
-- Juster `transform: rotate(...)` i `style.css` for header-fly
+
+
+Du kan enkelt legge til flere mattemoduler (for eksempel divisjon, større tall, tekstoppgaver) ved å utvide `script.js` og HTML.
 
 ## Bidrag
 Pull requests og forslag er velkomne!
