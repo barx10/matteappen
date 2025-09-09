@@ -5,7 +5,7 @@ Et enkelt mattespill med flytema for barn læringsutfordringer.
 ## Funksjoner
 
 ## Oppsett
-1. Åpne prosjektmappen i VS Code
+1. Åpne prosjektmappen i VS Code eller klon repoet.
 2. Start en enkel server (for eksempel med Python):
    ```zsh
    python3 -m http.server 8000
