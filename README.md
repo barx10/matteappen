@@ -1,6 +1,6 @@
 # Flymatte
 
-Et enkelt matte-spill for barn med fly-tema.
+Et enkelt mattespill med flytema for barn læringsutfordringer.
 
 ## Funksjoner
 
