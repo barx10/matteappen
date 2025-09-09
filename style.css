@@ -1,0 +1,372 @@
+main {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#game-section {
+    flex: 1;
+}
+
+#scoreboard-section {
+    flex: 0 0 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#app-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    background: linear-gradient(135deg, #87CEEB 0%, #E0F6FF 50%, #FFFFFF 100%); /* Sky gradient */
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '✈️';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2em;
+    animation: flyAcross 10s linear infinite;
+    transform: rotate(45deg); /* Fly rett vannrett mot høyre */
+}
+
+header::after {
+    content: '✈️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+    animation: flyAcrossReverse 10s linear infinite;
+    transform: rotate(-135deg); /* Fly rett vannrett mot venstre */
+}
+
+@keyframes flyAcross {
+    0% { left: -50px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: calc(100% + 50px); opacity: 0; }
+}
+
+@keyframes flyAcrossReverse {
+    0% { right: -50px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { right: calc(100% + 50px); opacity: 0; }
+}
+
+/* Rette fly-emoji i innholdet */
+.plane-icon {
+    display: inline-block;
+    transform-origin: center center;
+}
+.plane-right { /* peker rett mot høyre */
+    transform: rotate(-45deg);
+}
+.plane-left { /* peker rett mot venstre */
+    transform: rotate(135deg);
+}
+
+main {
+    display: flex;
+    min-height: calc(100vh - 120px);
+    gap: 0;
+}
+
+#game-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+#scoreboard-section {
+    flex: 0 0 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+header {
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+h1 {
+    color: #1565C0; /* Dyp blå */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+#session-info {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+header p {
+    color: #424242;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Skjul-klasse for elementer som ikke skal vises */
+.hidden {
+    display: none !important;
+}
+
+/* Modulvelger */
+#module-selector h2 {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+#show-tips {
+    background-color: #FFC107;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 10px 0;
+}
+
+#show-tips:hover {
+    background-color: #FFA000;
+}
+
+/* Spillområdet */
+#game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#task-display {
+    min-height: 150px; /* Sørg for at området har en viss høyde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.operator {
+    color: #2196F3;
+    margin: 0 10px;
+}
+
+.equals {
+    color: #4CAF50;
+    margin: 0 10px;
+}
+
+.question-mark {
+    color: #FFC107;
+    font-size: 1.2em;
+}
+
+.number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin: 0 5px;
+}
+
+.concrete-item {
+    width: 60px;
+    height: 60px;
+    background-color: #FFC107; /* Varm gul klossfarge */
+    border: 2px solid #FFA000;
+    border-radius: 8px;
+    margin: 5px;
+    display: inline-block;
+    line-height: 60px; /* Sentertekst vertikalt hvis det er tall på klossene */
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+.concrete-operator {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+#input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#answer-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#answer-input-container label {
+    font-size: 1.2em;
+    color: #333;
+}
+
+#answer-input {
+    padding: 10px;
+    font-size: 1.5em;
+    width: 100px;
+    text-align: center;
+    border: 2px solid #2196F3;
+    border-radius: 8px;
+    outline: none;
+}
+
+#answer-input:focus {
+    border-color: #1976D2;
+}
+
+#feedback-area {
+    margin-top: 25px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#feedback-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#back-to-modules {
+    background-color: #9E9E9E; /* Nøytral grå */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+    margin-left: 10px; /* Juster for å skille knappene */
+}
+
+#back-to-modules:hover {
+    background-color: #757575;
+}
+
+/* Scoreboard styling */
+#scoreboard-section h3 {
+    color: #d32f2f;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#scoreboard {
+    text-align: center;
+    font-size: 2em;
+    color: #d32f2f;
+    filter: sepia(1) hue-rotate(0deg) saturate(5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Animasjon for fly */
+@keyframes fly {
+    0% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(-10px); }
+}
+
+#task-display {
+    animation: fly 2s ease-in-out infinite;
+}
+
+/* Modulknapper */
+.module-button {
+    background: linear-gradient(135deg, #2196F3, #1976D2); /* Gradient for dybde */
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    margin: 15px 0;
+    border-radius: 15px; /* Mer avrundet */
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Glattere overganger */
+    min-width: 250px;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3); /* Skygge for 3D-effekt */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.module-button:hover {
+    background: linear-gradient(135deg, #1976D2, #1565C0); /* Mørkere gradient ved hover */
+    transform: translateY(-2px); /* Løft effekt */
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+}
+
+.module-button:active {
+    transform: translateY(0px); /* Trykk effekt */
+    box-shadow: 0 2px 10px rgba(33, 150, 243, 0.3);
+}
+
+.module-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.module-button:hover::before {
+    left: 100%;
+}

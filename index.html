@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flymatte - Matte med Fly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>✈️ Flymatte ✈️</h1>
+            <h2>La oss lære matte med fly!</h2>
+            <div id="session-info">
+                <span id="correct-count">Riktige: 0</span> / <span id="total-count">Totalt: 0</span>
+            </div>
+        </header>
+
+        <main>
+            <div id="game-section">
+                <div id="module-selector">
+                    <h2>Velg Fly-oppgave</h2>
+                    <button data-module="addition_1-10_concrete" class="module-button">✈️ Pluss med Fly (1-10)</button>
+                    <button data-module="subtraction_1-10_concrete" class="module-button">✈️ Minus med Fly (1-10)</button>
+                    <button data-module="multiplication_1-10_concrete" class="module-button">✈️ Gange med Fly (1-10)</button>
+                </div>
+
+                <div id="game-area" class="hidden">
+                    <div id="task-display">
+                        <!-- Her vises den konkrete/representative/abstrakte oppgaven -->
+                    </div>
+                    <button id="show-tips">💡 Tips</button>
+                    <div id="tips"></div>
+                    <div id="input-area">
+                        <div id="answer-input-container">
+                            <label for="answer-input">Skriv inn svaret ditt:</label>
+                            <input type="number" id="answer-input" min="0" placeholder="?" />
+                        </div>
+                    </div>
+
+                    <div id="feedback-area" class="hidden">
+                        <p id="feedback-text"></p>
+                    </div>
+
+                    <button id="back-to-modules">Tilbake til moduler</button>
+                </div>
+            </div>
+
+            <div id="scoreboard-section">
+                <h3>Riktige svar:</h3>
+                <div id="scoreboard">
+                    <!-- Røde fly for riktige svar -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
