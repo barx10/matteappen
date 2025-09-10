@@ -1,3 +1,13 @@
+.user-btn img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    background: #e0f6ff;
+    display: block;
+}
 main {
     display: flex;
     gap: 20px;
@@ -168,25 +178,51 @@ header p {
 }
 
 /* Spillområdet */
+/* Spillområdet delt i to */
 #game-area {
+    display: block;
+}
+.game-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+.user-image-side {
+    flex: 0 0 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-width: 340px;
+    margin: 2rem 0 2rem 2rem;
+    box-sizing: border-box;
+    padding-right: 1rem;
+}
+}
+.task-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 #task-display {
-    min-height: 150px; /* Sørg for at området har en viss høyde */
+    min-height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 12px;
     border: 2px solid #ddd;
     border-radius: 10px;
     background-color: #fdfdfd;
-    width: 100%;
+    width: 80%;
+    max-width: 400px;
     box-sizing: border-box;
 }
 
@@ -297,6 +333,23 @@ header p {
     background-color: #757575;
 }
 
+#back-to-forside {
+    background-color: #9E9E9E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+#back-to-forside:hover {
+    background-color: #757575;
+}
+
 /* Scoreboard styling */
 #scoreboard-section h3 {
     color: #d32f2f;
@@ -343,6 +396,23 @@ header p {
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+/* Forside brukergrid horisontal og responsiv */
+.user-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.user-btn img {
+    width: 140px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
 .module-button:hover {

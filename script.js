@@ -1,6 +1,35 @@
 // Basic functionality for the math app
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Vis valgt brukerbilde i spillrommet
+    function showUserImage() {
+        const userImageArea = document.getElementById('user-image-area');
+        if (!userImageArea) return;
+        const user = sessionStorage.getItem('selectedUser');
+        if (!user) {
+            userImageArea.innerHTML = '';
+            return;
+        }
+        // Map brukernavn til filnavn
+        const imageMap = {
+            'Airbus Beluga': 'Airbus Beluga.jpg',
+            'C5 Galaxy': 'C5-galaxy.jpg',
+            'Concorde': 'Concorde.jpg',
+            'SR-71 Blackbird': 'SR-71 Blackbird.jpg'
+        };
+        const imgSrc = imageMap[user] ? `bilder/${imageMap[user]}` : '';
+        if (imgSrc) {
+            userImageArea.innerHTML = `
+                <div style=\"display:flex;flex-direction:column;align-items:center;\">
+                    <img src=\"${imgSrc}\" alt=\"${user}\" style=\"width:340px;height:340px;object-fit:cover;border-radius:2.5rem;box-shadow:0 10px 40px rgba(0,0,0,0.18);background:#e0f6ff;border:8px solid #2196F3;\">
+                    <div style='font-size:2em;color:#023e8a;font-weight:700;margin-top:1.2rem;text-shadow:0 2px 8px #e0f6ff;'>${user}</div>
+                </div>
+            `;
+        } else {
+            userImageArea.innerHTML = '';
+        }
+    }
+
     // Audio context for sound effects
     let audioContext = null;
 
@@ -88,11 +117,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function startGame() {
-        moduleSelector.classList.add('hidden');
-        gameArea.classList.remove('hidden');
-        generateTask();
-        setupInput();
-        tips.innerHTML = ''; // Hide tips initially
+    moduleSelector.classList.add('hidden');
+    gameArea.classList.remove('hidden');
+    showUserImage();
+    generateTask();
+    setupInput();
+    tips.innerHTML = ''; // Hide tips initially
     }
 
     function setTips() {
@@ -140,24 +170,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (operation === 'addition') {
             num1 = Math.floor(Math.random() * maxNum) + 1; // 1 to maxNum
             num2 = Math.floor(Math.random() * maxNum) + 1;
-            const planes1 = '✈️'.repeat(num1);
-            const planes2 = '✈️'.repeat(num2);
             currentTask = { num1, num2, answer: num1 + num2 };
-            taskDisplay.innerHTML = `<span class="number">${num1}</span> ${planes1} <span class="operator">+</span> <span class="number">${num2}</span> ${planes2} <span class="equals">=</span> <span class="question-mark">?</span>`;
+            taskDisplay.innerHTML = `<span class="number">${num1}</span> <span class="operator">+</span> <span class="number">${num2}</span> <span class="equals">=</span> <span class="question-mark">?</span>`;
         } else if (operation === 'subtraction') {
             num1 = Math.floor(Math.random() * maxNum) + 1;
             num2 = Math.floor(Math.random() * num1) + 1; // Ensure num1 >= num2, both >=1
-            const planes1 = '✈️'.repeat(num1);
-            const planes2 = '✈️'.repeat(num2);
             currentTask = { num1, num2, answer: num1 - num2 };
-            taskDisplay.innerHTML = `<span class="number">${num1}</span> ${planes1} <span class="operator">-</span> <span class="number">${num2}</span> ${planes2} <span class="equals">=</span> <span class="question-mark">?</span>`;
+            taskDisplay.innerHTML = `<span class="number">${num1}</span> <span class="operator">-</span> <span class="number">${num2}</span> <span class="equals">=</span> <span class="question-mark">?</span>`;
         } else if (operation === 'multiplication') {
             num1 = Math.floor(Math.random() * maxNum) + 1;
             num2 = Math.floor(Math.random() * maxNum) + 1;
-            const planes1 = '✈️'.repeat(num1);
-            const planes2 = '✈️'.repeat(num2);
             currentTask = { num1, num2, answer: num1 * num2 };
-            taskDisplay.innerHTML = `<span class="number">${num1}</span> ${planes1} <span class="operator">×</span> <span class="number">${num2}</span> ${planes2} <span class="equals">=</span> <span class="question-mark">?</span>`;
+            taskDisplay.innerHTML = `<span class="number">${num1}</span> <span class="operator">×</span> <span class="number">${num2}</span> <span class="equals">=</span> <span class="question-mark">?</span>`;
         }
     }
 
@@ -178,10 +202,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             wrongAttempts++;
             playCrashSound(); // Play crash sound on wrong answer
+            const motivators = [
+                'Prøv igjen! Du klarer det! 💪',
+                'Du er på rett vei, prøv en gang til! 🚀',
+                'Ikke gi opp, du får det til! 🙌'
+            ];
             if (wrongAttempts >= 3) {
-                feedbackText.textContent = `Prøv igjen! Riktig svar er ${currentTask.answer}. Du klarer det! 💪`;
+                feedbackText.textContent = `Riktig svar er ${currentTask.answer}, dette klarer du neste gang!`;
             } else {
-                feedbackText.textContent = 'Prøv igjen! Du klarer det! 💪';
+                const idx = Math.floor(Math.random() * motivators.length);
+                feedbackText.textContent = motivators[idx];
             }
             feedbackText.className = 'feedback-incorrect';
             feedbackArea.classList.remove('hidden');
@@ -199,6 +229,14 @@ document.addEventListener('DOMContentLoaded', function() {
         gameArea.classList.add('hidden');
         moduleSelector.classList.remove('hidden');
     });
+
+        // Tilbake til forsiden-knapp
+        const backToForside = document.getElementById('back-to-forside');
+        if (backToForside) {
+            backToForside.addEventListener('click', function() {
+                window.location.href = 'forside.html';
+            });
+        }
 
     showTips.addEventListener('click', function() {
         if (tips.innerHTML === '') {
