@@ -1,8 +1,91 @@
-// Basic functionality for the math app
+// Basic functionality for the math app with profile setup
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Profile setup variables
+    let selectedUsername = '';
+    let selectedAirplane = '';
+    let selectedAirplaneImg = '';
+    
+    // Initialize profile setup
+    initProfileSetup();
+
     // Audio context for sound effects
     let audioContext = null;
+
+    function initProfileSetup() {
+        const profileSetup = document.getElementById('profile-setup');
+        const mainGame = document.getElementById('main-game');
+        const usernameInput = document.getElementById('username-input');
+        const airplaneOptions = document.querySelectorAll('.airplane-option');
+        const startGameBtn = document.getElementById('start-game-btn');
+        
+        // Show profile setup, hide main game
+        profileSetup.classList.remove('hidden');
+        mainGame.classList.add('hidden');
+        
+        // Handle airplane selection
+        airplaneOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                airplaneOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                selectedAirplane = this.getAttribute('data-plane');
+                selectedAirplaneImg = this.querySelector('img').src;
+                checkProfileComplete();
+            });
+        });
+        
+        // Handle username input
+        usernameInput.addEventListener('input', function() {
+            selectedUsername = this.value.trim();
+            checkProfileComplete();
+        });
+        
+        // Handle Enter key in username input
+        usernameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !startGameBtn.disabled) {
+                startMainGame();
+            }
+        });
+        
+        // Handle start game button
+        startGameBtn.addEventListener('click', startMainGame);
+        
+        function checkProfileComplete() {
+            if (selectedUsername && selectedAirplane) {
+                startGameBtn.disabled = false;
+            } else {
+                startGameBtn.disabled = true;
+            }
+        }
+        
+        function startMainGame() {
+            if (selectedUsername && selectedAirplane) {
+                // Update profile display in main game
+                document.getElementById('profile-name').textContent = selectedUsername;
+                document.getElementById('profile-plane').src = selectedAirplaneImg;
+                document.getElementById('profile-plane').alt = selectedAirplane;
+                
+                // Update module buttons to show selected airplane
+                updateModuleButtons();
+                
+                // Hide profile setup, show main game
+                profileSetup.classList.add('hidden');
+                mainGame.classList.remove('hidden');
+            }
+        }
+    }
+
+    function updateModuleButtons() {
+        const moduleButtons = document.querySelectorAll('.module-button');
+        const airplaneHTML = `<img src="${selectedAirplaneImg}" class="button-airplane" alt="${selectedAirplane}" />`;
+        
+        moduleButtons.forEach(button => {
+            // Replace ✈️ with selected airplane
+            button.innerHTML = button.innerHTML.replace('✈️', airplaneHTML);
+        });
+    }
 
     function initAudio() {
         if (!audioContext) {
@@ -137,25 +220,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxNum = parseInt(range);
 
         let num1, num2;
+        // Use selected airplane image instead of emoji
+        const getAirplaneHTML = (count) => {
+            let html = '';
+            for (let i = 0; i < count; i++) {
+                html += `<img src="${selectedAirplaneImg}" class="task-airplane" alt="${selectedAirplane}" />`;
+            }
+            return html;
+        };
+
         if (operation === 'addition') {
             num1 = Math.floor(Math.random() * maxNum) + 1; // 1 to maxNum
             num2 = Math.floor(Math.random() * maxNum) + 1;
-            const planes1 = '✈️'.repeat(num1);
-            const planes2 = '✈️'.repeat(num2);
+            const planes1 = getAirplaneHTML(num1);
+            const planes2 = getAirplaneHTML(num2);
             currentTask = { num1, num2, answer: num1 + num2 };
             taskDisplay.innerHTML = `<span class="number">${num1}</span> ${planes1} <span class="operator">+</span> <span class="number">${num2}</span> ${planes2} <span class="equals">=</span> <span class="question-mark">?</span>`;
         } else if (operation === 'subtraction') {
             num1 = Math.floor(Math.random() * maxNum) + 1;
             num2 = Math.floor(Math.random() * num1) + 1; // Ensure num1 >= num2, both >=1
-            const planes1 = '✈️'.repeat(num1);
-            const planes2 = '✈️'.repeat(num2);
+            const planes1 = getAirplaneHTML(num1);
+            const planes2 = getAirplaneHTML(num2);
             currentTask = { num1, num2, answer: num1 - num2 };
             taskDisplay.innerHTML = `<span class="number">${num1}</span> ${planes1} <span class="operator">-</span> <span class="number">${num2}</span> ${planes2} <span class="equals">=</span> <span class="question-mark">?</span>`;
         } else if (operation === 'multiplication') {
             num1 = Math.floor(Math.random() * maxNum) + 1;
             num2 = Math.floor(Math.random() * maxNum) + 1;
-            const planes1 = '✈️'.repeat(num1);
-            const planes2 = '✈️'.repeat(num2);
+            const planes1 = getAirplaneHTML(num1);
+            const planes2 = getAirplaneHTML(num2);
             currentTask = { num1, num2, answer: num1 * num2 };
             taskDisplay.innerHTML = `<span class="number">${num1}</span> ${planes1} <span class="operator">×</span> <span class="number">${num2}</span> ${planes2} <span class="equals">=</span> <span class="question-mark">?</span>`;
         }
@@ -192,7 +284,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateScore() {
         document.getElementById('correct-count').textContent = `Riktige: ${correctCount}`;
         document.getElementById('total-count').textContent = `Totalt: ${totalCount}`;
-    scoreboard.innerHTML = '✈️'.repeat(correctCount);
+        
+        // Use selected airplane in scoreboard
+        let scoreboardHTML = '';
+        for (let i = 0; i < correctCount; i++) {
+            scoreboardHTML += `<img src="${selectedAirplaneImg}" class="score-airplane" alt="${selectedAirplane}" />`;
+        }
+        scoreboard.innerHTML = scoreboardHTML;
     }
 
     backToModules.addEventListener('click', function() {

@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#E74C3C" stroke="#C0392B" stroke-width="1">
+    <!-- Main fuselage -->
+    <ellipse cx="32" cy="32" rx="26" ry="8" />
+    <!-- Wings -->
+    <ellipse cx="32" cy="32" rx="8" ry="20" />
+    <!-- Tail -->
+    <polygon points="10,32 18,26 18,38" />
+    <!-- Nose -->
+    <ellipse cx="50" cy="32" rx="6" ry="4" />
+    <!-- Windows -->
+    <circle cx="35" cy="28" r="2" fill="lightblue" />
+    <circle cx="40" cy="28" r="2" fill="lightblue" />
+    <circle cx="45" cy="28" r="2" fill="lightblue" />
+  </g>
+  <text x="32" y="38" text-anchor="middle" font-family="Arial" font-size="6" fill="white">PASSASJER</text>
+</svg>

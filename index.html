@@ -8,15 +8,62 @@
 </head>
 <body>
     <div id="app-container">
-        <header>
-            <h1>✈️ Flymatte ✈️</h1>
-            <h2>La oss lære matte med fly!</h2>
-            <div id="session-info">
-                <span id="correct-count">Riktige: 0</span> / <span id="total-count">Totalt: 0</span>
+        <!-- Profile Setup Section -->
+        <div id="profile-setup" class="profile-setup">
+            <div class="setup-container">
+                <h1>✈️ Velkommen til Flymatte! ✈️</h1>
+                <h2>Lag din pilot-profil</h2>
+                
+                <div class="setup-step">
+                    <label for="username-input">Skriv inn ditt piltnavn:</label>
+                    <input type="text" id="username-input" placeholder="Ditt navn..." maxlength="20" />
+                </div>
+                
+                <div class="setup-step">
+                    <h3>Velg ditt fly:</h3>
+                    <div class="airplane-selector">
+                        <div class="airplane-option" data-plane="fighter">
+                            <img src="flytyper/fighter.svg" alt="Jagerfly" />
+                            <span>Jagerfly</span>
+                        </div>
+                        <div class="airplane-option" data-plane="passenger">
+                            <img src="flytyper/passenger.svg" alt="Passasjerfly" />
+                            <span>Passasjerfly</span>
+                        </div>
+                        <div class="airplane-option" data-plane="cargo">
+                            <img src="flytyper/cargo.svg" alt="Frakt fly" />
+                            <span>Frakt fly</span>
+                        </div>
+                        <div class="airplane-option" data-plane="helicopter">
+                            <img src="flytyper/helicopter.svg" alt="Helikopter" />
+                            <span>Helikopter</span>
+                        </div>
+                        <div class="airplane-option" data-plane="glider">
+                            <img src="flytyper/glider.svg" alt="Glidefly" />
+                            <span>Glidefly</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="start-game-btn" class="start-game-btn" disabled>Start å fly! 🚀</button>
             </div>
-        </header>
+        </div>
 
-        <main>
+        <!-- Main Game Section -->
+        <div id="main-game" class="hidden">
+            <header>
+                <h1>✈️ Flymatte ✈️</h1>
+                <h2>La oss lære matte med fly!</h2>
+                <div id="profile-display">
+                    <img id="profile-plane" src="" alt="Ditt fly" />
+                    <span id="profile-name">Pilot</span>
+                </div>
+                <div id="session-info">
+                    <span id="correct-count">Riktige: 0</span> / <span id="total-count">Totalt: 0</span>
+                </div>
+            </header>
+
+            <main>
             <div id="game-section">
                 <div id="module-selector">
                     <h2>Velg Fly-oppgave</h2>
@@ -53,6 +100,7 @@
                 </div>
             </div>
         </main>
+        </div>
     </div>
 
     <script src="script.js"></script>

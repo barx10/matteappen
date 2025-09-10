@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#F39C12" stroke="#D68910" stroke-width="1">
+    <!-- Main fuselage -->
+    <ellipse cx="32" cy="32" rx="24" ry="4" />
+    <!-- Long wings -->
+    <ellipse cx="32" cy="32" rx="6" ry="24" />
+    <!-- Tail -->
+    <polygon points="12,32 16,28 16,36" />
+    <!-- Nose -->
+    <ellipse cx="48" cy="32" rx="8" ry="3" />
+  </g>
+  <text x="32" y="36" text-anchor="middle" font-family="Arial" font-size="7" fill="white">GLIDEFLY</text>
+</svg>

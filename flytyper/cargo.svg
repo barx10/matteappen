@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#27AE60" stroke="#1E8449" stroke-width="1">
+    <!-- Main fuselage -->
+    <rect x="8" y="26" width="40" height="12" rx="4" />
+    <!-- Wings -->
+    <ellipse cx="32" cy="32" rx="10" ry="18" />
+    <!-- Tail -->
+    <polygon points="8,32 14,24 14,40" />
+    <!-- Nose -->
+    <ellipse cx="48" cy="32" rx="8" ry="6" />
+    <!-- Cargo door -->
+    <rect x="20" y="28" width="8" height="8" fill="#2ECC71" />
+  </g>
+  <text x="32" y="38" text-anchor="middle" font-family="Arial" font-size="7" fill="white">FRAKT</text>
+</svg>

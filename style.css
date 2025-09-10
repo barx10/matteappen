@@ -1,3 +1,192 @@
+/* Profile Setup Styles */
+.profile-setup {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #87CEEB 0%, #E0F6FF 50%, #FFFFFF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.setup-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.setup-container h1 {
+    color: #1565C0;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.setup-container h2 {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+.setup-step {
+    margin: 30px 0;
+}
+
+.setup-step label {
+    display: block;
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#username-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    font-size: 1.2em;
+    border: 3px solid #2196F3;
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#username-input:focus {
+    border-color: #1976D2;
+}
+
+.setup-step h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.airplane-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.airplane-option {
+    background: white;
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 100px;
+}
+
+.airplane-option:hover {
+    border-color: #2196F3;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.airplane-option.selected {
+    border-color: #1976D2;
+    background: #E3F2FD;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+}
+
+.airplane-option img {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.airplane-option span {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9em;
+}
+
+.start-game-btn {
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.start-game-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #388E3C, #2E7D32);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.start-game-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Profile display in header */
+#profile-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+#profile-plane {
+    width: 40px;
+    height: 40px;
+}
+
+#profile-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1565C0;
+}
+
+/* Task airplane styling */
+.task-airplane {
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+/* Score airplane styling */
+.score-airplane {
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+}
+
+/* Button airplane styling */
+.button-airplane {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* ====================== */
+/* Existing styles below */
+/* ====================== */
+
 main {
     display: flex;
     gap: 20px;
