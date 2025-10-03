@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
             'Airbus Beluga': 'Airbus Beluga.jpg',
             'C5 Galaxy': 'C5-galaxy.jpg',
             'Concorde': 'Concorde.jpg',
-            'SR-71 Blackbird': 'SR-71 Blackbird.jpg'
+            'SR-71 Blackbird': 'SR-71 Blackbird.jpg',
+            'Airbus A380': 'Airbus-380.jpg',
+            'Bell X-1': 'Bell-X1.jpg',
+            'Wright Flyer': 'Wright.jpg',
+            'Antonov An-225': 'antonov-an-225.jpg',
+            'Piaggio P.180 Avanti': 'piaggio-p.180-avanti.jpg'
         };
         const imgSrc = imageMap[user] ? `bilder/${imageMap[user]}` : '';
         if (imgSrc) {
