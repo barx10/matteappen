@@ -161,6 +161,16 @@ header p {
     font-size: 1.8em;
 }
 
+#module-selector h3 {
+    color: #2196F3;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-align: left;
+    border-bottom: 2px solid #e0f6ff;
+    padding-bottom: 8px;
+}
+
 #show-tips {
     background-color: #FFC107;
     color: #333;
@@ -200,7 +210,7 @@ header p {
     box-sizing: border-box;
     padding-right: 1rem;
 }
-}
+
 .task-side {
     flex: 1;
     display: flex;

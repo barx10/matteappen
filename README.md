@@ -3,6 +3,15 @@
 Et enkelt mattespill med flytema for barn med læringsutfordringer.
 
 ## Funksjoner
+- Velg mellom flere moduler:
+  - **Grunnleggende (1-10):** Pluss, Minus, Gange
+  - **Avansert (10-100):** Pluss, Minus, Gange med større tall
+  - **Praktisk matte:** Penger (kroner og øre), Tid (klokke)
+- Velg din favoritt flytype før du starter
+- Riktige svar gir fly på poengtavlen
+- Tips-knapp for hjelp med forklaringer
+- Lyd for riktige/feil svar
+- Animert header med fly
 
 ## Oppsett
 1. Åpne prosjektmappen i VS Code
@@ -15,7 +24,8 @@ Et enkelt mattespill med flytema for barn med læringsutfordringer.
 
 
 
-Du kan enkelt legge til flere mattemoduler (for eksempel divisjon, større tall, tekstoppgaver) ved å utvide `script.js` og HTML.
+## Utvidelser
+Du kan enkelt legge til flere mattemoduler (for eksempel divisjon, brøk, desimaltall, tekstoppgaver) ved å utvide `script.js` og `game.html`.
 
 ## Bidrag
 Pull requests og forslag er velkomne!
