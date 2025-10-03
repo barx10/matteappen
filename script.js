@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const backToForside = document.getElementById('back-to-forside');
         if (backToForside) {
             backToForside.addEventListener('click', function() {
-                window.location.href = 'forside.html';
+                window.location.href = 'index.html';
             });
         }
 
