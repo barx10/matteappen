@@ -93,6 +93,16 @@ main {
     display: flex;
     min-height: calc(100vh - 120px);
     gap: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Spesifikk styling for forside */
+body:has(#user-select) main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2rem;
 }
 
 #game-section {
@@ -411,6 +421,9 @@ header p {
 #user-select {
     padding: 2rem;
     text-align: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 #user-select h3 {
@@ -427,7 +440,7 @@ header p {
     justify-content: center;
     margin-top: 2rem;
     flex-wrap: wrap;
-    max-width: 1200px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
